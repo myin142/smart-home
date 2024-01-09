@@ -1,17 +1,16 @@
-# import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 from flask import Flask, request
 
 HEATING_PIN_MAP = {
-    "heat-1": 1,
-    "heat-2": 2,
-    "heat-3": 3,
-    "heat-4": 4,
-    "heat-5": 5,
-    "heat-6": 6,
+    "heat-0": 29,
+    "heat-1": 31,
+    "heat-2": 33,
+    "heat-3": 36,
+    "heat-4": 35,
+    "heat-5": 38,
+    "heat-6": 40,
+    "heat-7": 37,
 }
-
-# GPIO.output(23, GPIO.HIGH)
-# GPIO.output(23, GPIO.LOW)
 
 app = Flask(__name__)
 
@@ -25,7 +24,7 @@ def floor_heating():
 
         pin = HEATING_PIN_MAP[key]
         is_on = data[key] == True
-        print(pin, ", ", is_on)
-        # GPIO.output(pin, GPIO.HIGH if is_on else GPIO.LOW)
+        print(pin, ": ", is_on)
+        GPIO.output(pin, GPIO.HIGH if is_on else GPIO.LOW)
 
     return data
