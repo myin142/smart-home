@@ -14,6 +14,7 @@ HEATING_PIN_MAP = {
 
 app = Flask(__name__)
 
+GPIO.setmode(GPIO.BOARD)
 for k in HEATING_PIN_MAP:
     pin = HEATING_PIN_MAP[k]
     GPIO.setup(pin, GPIO.OUT)
