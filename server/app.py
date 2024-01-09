@@ -14,6 +14,10 @@ HEATING_PIN_MAP = {
 
 app = Flask(__name__)
 
+for k in HEATING_PIN_MAP:
+    pin = HEATING_PIN_MAP[k]
+    GPIO.setup(pin, GPIO.OUT)
+
 @app.post("/floor-heating")
 def floor_heating():
     data = request.json
