@@ -8,5 +8,5 @@ RUN apt-get update && apt-get install -y python3-dev gcc libc-dev
 RUN pip install -r /var/www/requirements.txt
 EXPOSE 5000
 
-CMD ["flask","run"]
+CMD ["flask","run", "--host", "0.0.0.0"]
 
