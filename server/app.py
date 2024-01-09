@@ -2,19 +2,19 @@ import RPi.GPIO as GPIO
 from flask import Flask, request
 
 HEATING_PIN_MAP = {
-    "heat-0": 29,
-    "heat-1": 31,
-    "heat-2": 33,
-    "heat-3": 36,
-    "heat-4": 35,
-    "heat-5": 38,
-    "heat-6": 40,
-    "heat-7": 37,
+    "heat-0": 5,
+    "heat-1": 6,
+    "heat-2": 13,
+    "heat-3": 16,
+    "heat-4": 19,
+    "heat-5": 20,
+    "heat-6": 21,
+    "heat-7": 26,
 }
 
 app = Flask(__name__)
 
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 for k in HEATING_PIN_MAP:
     pin = HEATING_PIN_MAP[k]
     GPIO.setup(pin, GPIO.OUT)
