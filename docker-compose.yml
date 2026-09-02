@@ -1,0 +1,14 @@
+services:
+  homeassistant:
+    image: "ghcr.io/home-assistant/home-assistant:stable"
+    container_name: homeassistant
+    restart: unless-stopped
+    privileged: false
+    volumes:
+      - ./config:/config
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 8123:8123
+    # Uncomment the following section to pass a USB device to the container
+    # devices:
+    #   - /dev/serial/by-id/YOUR_DEVICE_PATH:/dev/serial/by-id/YOUR_DEVICE_PATH
